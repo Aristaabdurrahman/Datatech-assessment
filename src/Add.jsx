@@ -21,9 +21,15 @@ const Add = () => {
 
     const userSubmit = (e) => {
         e.preventDefault()
-        id ? editUser(id, inputValues) : addUser(inputValues)
-        resetForm()
-        nav('/')
+
+        if (inputValues.name == '' || inputValues.url == '') {
+            alert("Please Complete your data")
+        } else {
+            id ? editUser(id, inputValues) : addUser(inputValues)
+            resetForm()
+            nav('/')
+        }
+
     }
 
     return (
@@ -55,7 +61,7 @@ const Add = () => {
                             </div>
                             <div class="d-grid col-4 mx-auto">
                                 <button type="submit" class="btn btn-primary mt-2 mb-4">Submit</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => {nav('/')}}>Back to home</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={() => { nav('/') }}>Back to home</button>
                             </div>
                         </form>
                     </div>
