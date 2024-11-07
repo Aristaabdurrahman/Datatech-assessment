@@ -25,8 +25,6 @@ const Board = () => {
             .then(err => console.log(err));
     }, [])
 
-    console.log(users)
-
     return (
         <>
             <div className="container-fluid">
@@ -43,7 +41,7 @@ const Board = () => {
                             <caption>List of users
                             </caption>
                             <thead>
-                                <tr>
+                                <tr className="text-center">
                                     <th scope="col">Picture</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Status</th>
@@ -52,7 +50,7 @@ const Board = () => {
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="text-center">
                                 {
                                     users.map((d, i) => (
                                         <tr key={i}>
@@ -65,7 +63,6 @@ const Board = () => {
                                             </td>
                                             <td class="align-middle">
                                                 <button type="submit" class="btn btn-secondary" onClick={() => {nav(`/edit-user/${d.id}`)}}>Edit</button>
-                                                <button type="submit" class="btn btn-secondary">Delete</button>
                                             </td>
                                         </tr>
                                     ))
